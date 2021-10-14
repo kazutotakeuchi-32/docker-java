@@ -4,7 +4,7 @@
   docker-compose up
 ```
 ### ファイル実行
-  javacでコンパイル
+  javacでコンパイル<br/>
   javaでバイナリファイル実行
 ```bash
   docker-compose javac Test.java &&  java Test
