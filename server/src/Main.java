@@ -1,5 +1,6 @@
 import java.text.MessageFormat;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
@@ -33,8 +34,6 @@ public class Main {
       System.out.println("最大値: " + maxN);
       System.out.println("最小値: " + minN);
 
-
-
     };
 
     public static int[] array_sort(int[] nums) {
@@ -58,6 +57,16 @@ public class Main {
     public static void main(String[] args) {
        int[] ary = {10,3,100,90,54};
        output(array_sort(ary));
+      int num1 = GetNum.getNumber();
+      int num2 = GetNum.getNumber();
+
+      int addtion = Cal.addtion(num1,num2);
+      int subtaction = Cal.subtaction(num1,num2);
+      int multiply = Cal.multiply(num1,num2);
+      int division = Cal.division(num1,num2);
+
+      Outnum.outmsg(addtion,subtaction,multiply,division);
+
     }
 
 
