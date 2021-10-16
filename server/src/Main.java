@@ -1,141 +1,201 @@
 import java.text.MessageFormat;
+import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) {
 
-      System.out.println("名前を入力してください");
-      String name  = new java.util.Scanner(System.in).nextLine();
+    public static void hello(String name){
+        System.out.println("hello world " + name + "さん");
+    }
 
-      System.out.println("教科を入力してください。");
-      String subject = new java.util.Scanner(System.in).nextLine();
+    public static void output(int[] nums) {
+      int minN = nums[0];
+      int maxN = nums[0];
+      int sum = nums[0];
+      int n = 1 ;
 
-      int nameN=0 ;
-      int subjectN=0;
-      int value=0;
-      String chars;
+      for(int i = 0; i < nums.length ; i++) {
 
-      if(name.equals("A")){
-          nameN=0;
-      }else if(name.equals("B")){
-          nameN=1;
-      }else if(name.equals("C")){
-          nameN=2;
+          if(minN > nums[i]){
+              minN = nums[i];
+          }
+
+          if(maxN < nums[i]){
+              maxN = nums[i];
+          }
+
+          sum += nums[i];
+          n++;
       }
 
-      if(subject.equals("英語")){
-          subjectN=0;
-      }else if(subject.equals("国語")){
-          subjectN=1;
-      }else if(subject.equals("数学")){
-          subjectN=2;
-      }else if(subject.equals("理科")){
-          subjectN=3;
-      }else if(subject.equals("全教科")){
-          subjectN=0;
-      }
-  
-        int[][] score = {{92,78,95},{89,79,98},{98,94,89},{99,86,87}};
-        int[] sums ;
-        sums = new int[4] ;
+      System.out.println("ーーーーーー 結果 ーーーーーー");
+      System.out.println("合計点: " + sum);
+      System.out.println("平均点: " + sum/n);
+      System.out.println("最大値: " + maxN);
+      System.out.println("最小値: " + minN);
 
 
-        if(!subject.equals("全教科")){
 
-            System.out.println("各教科：[最高点、最高得点者、平均点]");
-            for(int i = 0 ; i < score.length ; i++) {
-                int sum = 0 ;
-                int maxNum = score[i][0];
-                int maxIndex = 0 ;
-                for (int j = 0 ; j < score[i].length ; j ++) {
-                    sum+=score[i][j];
-                    if(j==nameN){
-                      value = score[i][j];
-                    }
-                    if(maxNum < score[i][j]){
-                        maxNum = score[i][j];
-                        maxIndex = j ;
-                    }
-                }
+    };
 
-                if(i == subjectN ){
-                    int n = maxNum-value;
-                    System.out.println(maxNum);
-                    System.out.println(value);
-                    System.out.println(subjectN);
-                    
-                    if(n==0){
-                      System.out.println("あなたは"+"("+ subject +")で最高得点者です");
-                    }else{
-                      System.out.println("("+ subject +")の最高得点者まで"+ (maxNum - value) +"点足りません。");
-                    }
-                    break ;
+    public static int[] array_sort(int[] nums) {
+        for(int i = 0 ; i < nums.length ; i++) {
+            for (int j = 0 ; j < nums.length - 1 ; j++){
+                if(nums[j] > nums[j+1]){
+                    int tmp = nums[j];
+                    nums[j] = nums[j+1];
+                    nums[j+1] = tmp;
                 }
                 
-                // System.out.println("["+maxNum+" "+maxIndex + " " + sum/score[i].length+"]");
-                // System.out.println(maxIndex);
-                // System.out.println(sum/score[i].length);
-                sums[i] = sum;
-            }
-
-        }else{
-
-            int maxNum = score[0][0];
-            int maxIndex = 0 ;
-            int index = 0;
-            int output=0;
-
-            for(int i = 0 ; i < score[i].length ; i++) {
-
-                int sum = 0 ;
-                
-                for (int j = 0 ; j < score.length ; j++) {
-                    sum+=score[j][i];
-                    if(maxNum < sum){
-                        maxNum = sum;
-                        maxIndex = i ;
-                    }
-                    index++;
-                }
-                
-                if(i == nameN){
-                    value = sum;
-                }
-
-                output+=sum;
-            }
-
-
-            System.out.println("合計点：[最高点、最高得点者、平均点]");
-            System.out.println("["+maxNum+" "+maxIndex + " " + output/index +"]");
-            
-            // A 92+89+98+99
-            // 378
-            // B 78+79+94+86
-            // 337
-            // C 95+98+89+87
-            // 369
-            int n = maxNum - value;
-            if (n==0){
-              System.out.println("あなたは"+"("+ subject +")で最高得点者です");
-            }else{
-              System.out.println("("+ subject +")の最高得点者まで"+ (maxNum - value) +"点足りません。");
             }
         }
 
-
-        // int sum = sums[0] ;
-        // int maxNum = sums[0];
-        // int maxIndex = 0 ;
-        // for(int i = 0; i < sums.length; i++){
-        //     sum+=sums[i];
-        //     if (maxNum < sums[i]) {
-        //         System.out.println(sums[i]);
-        //         maxNum = sums[i];
-        //         maxIndex = i ; 
-        //     }
-        // }
-        // System.out.println("[" + maxNum + " "+ maxIndex + " " +sum / sums.length + "]");
+        System.out.println(Arrays.toString(nums));
+        
+       return nums ;
     }
+
+
+    public static void main(String[] args) {
+       int[] ary = {10,3,100,90,54};
+       output(array_sort(ary));
+    }
+
+
+    // public static void main(String[] args) {
+
+    //   System.out.println("名前を入力してください");
+    //   String name  = new java.util.Scanner(System.in).nextLine();
+
+    //   System.out.println("教科を入力してください。");
+    //   String subject = new java.util.Scanner(System.in).nextLine();
+
+    //   int nameN=0 ;
+    //   int subjectN=0;
+    //   int value=0;
+    //   String chars;
+
+    //   if(name.equals("A")){
+    //       nameN=0;
+    //   }else if(name.equals("B")){
+    //       nameN=1;
+    //   }else if(name.equals("C")){
+    //       nameN=2;
+    //   }
+
+    //   if(subject.equals("英語")){
+    //       subjectN=0;
+    //   }else if(subject.equals("国語")){
+    //       subjectN=1;
+    //   }else if(subject.equals("数学")){
+    //       subjectN=2;
+    //   }else if(subject.equals("理科")){
+    //       subjectN=3;
+    //   }else if(subject.equals("全教科")){
+    //       subjectN=0;
+    //   }
+  
+    //     int[][] score = {{92,78,95},{89,79,98},{98,94,89},{99,86,87}};
+    //     int[] sums ;
+    //     sums = new int[4] ;
+
+
+    //     if(!subject.equals("全教科")){
+
+    //         System.out.println("各教科：[最高点、最高得点者、平均点]");
+    //         for(int i = 0 ; i < score.length ; i++) {
+    //             int sum = 0 ;
+    //             int maxNum = score[i][0];
+    //             int maxIndex = 0 ;
+    //             for (int j = 0 ; j < score[i].length ; j ++) {
+    //                 sum+=score[i][j];
+    //                 if(j==nameN){
+    //                   value = score[i][j];
+    //                 }
+    //                 if(maxNum < score[i][j]){
+    //                     maxNum = score[i][j];
+    //                     maxIndex = j ;
+    //                 }
+    //             }
+
+    //             if(i == subjectN ){
+    //                 int n = maxNum-value;
+    //                 System.out.println(maxNum);
+    //                 System.out.println(value);
+    //                 System.out.println(subjectN);
+                    
+    //                 if(n==0){
+    //                   System.out.println("あなたは"+"("+ subject +")で最高得点者です");
+    //                 }else{
+    //                   System.out.println("("+ subject +")の最高得点者まで"+ (maxNum - value) +"点足りません。");
+    //                 }
+    //                 break ;
+    //             }
+                
+    //             // System.out.println("["+maxNum+" "+maxIndex + " " + sum/score[i].length+"]");
+    //             // System.out.println(maxIndex);
+    //             // System.out.println(sum/score[i].length);
+    //             sums[i] = sum;
+    //         }
+
+    //     }else{
+
+    //         int maxNum = score[0][0];
+    //         int maxIndex = 0 ;
+    //         int index = 0;
+    //         int output=0;
+
+    //         for(int i = 0 ; i < score[i].length ; i++) {
+
+    //             int sum = 0 ;
+                
+    //             for (int j = 0 ; j < score.length ; j++) {
+    //                 sum+=score[j][i];
+    //                 if(maxNum < sum){
+    //                     maxNum = sum;
+    //                     maxIndex = i ;
+    //                 }
+    //                 index++;
+    //             }
+                
+    //             if(i == nameN){
+    //                 value = sum;
+    //             }
+
+    //             output+=sum;
+    //         }
+
+
+    //         System.out.println("合計点：[最高点、最高得点者、平均点]");
+    //         System.out.println("["+maxNum+" "+maxIndex + " " + output/index +"]");
+            
+    //         // A 92+89+98+99
+    //         // 378
+    //         // B 78+79+94+86
+    //         // 337
+    //         // C 95+98+89+87
+    //         // 369
+    //         int n = maxNum - value;
+    //         if (n==0){
+    //           System.out.println("あなたは"+"("+ subject +")で最高得点者です");
+    //         }else{
+    //           System.out.println("("+ subject +")の最高得点者まで"+ (maxNum - value) +"点足りません。");
+    //         }
+    //     }
+
+
+    //     // int sum = sums[0] ;
+    //     // int maxNum = sums[0];
+    //     // int maxIndex = 0 ;
+    //     // for(int i = 0; i < sums.length; i++){
+    //     //     sum+=sums[i];
+    //     //     if (maxNum < sums[i]) {
+    //     //         System.out.println(sums[i]);
+    //     //         maxNum = sums[i];
+    //     //         maxIndex = i ; 
+    //     //     }
+    //     // }
+    //     // System.out.println("[" + maxNum + " "+ maxIndex + " " +sum / sums.length + "]");
+    // }
 
 
 
