@@ -19,4 +19,14 @@ public class Cal {
     }
   }
 
+  public static int sum(int[] nums) {
+    int sum = 0 ;
+    int i = 0 ;
+    while(i < nums.length) {
+      sum+=nums[i];
+      i++;
+    }
+    return sum ;
+  }
+
 }

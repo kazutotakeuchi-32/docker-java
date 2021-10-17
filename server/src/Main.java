@@ -55,17 +55,27 @@ public class Main {
 
 
     public static void main(String[] args) {
-       int[] ary = {10,3,100,90,54};
-       output(array_sort(ary));
-      int num1 = GetNum.getNumber();
-      int num2 = GetNum.getNumber();
+    //   int[] ary = {10,3,100,90,54};
+    //   output(array_sort(ary));
+      System.out.println("整数を入力してください(半角スペースで要素を区切っています。))");
 
-      int addtion = Cal.addtion(num1,num2);
-      int subtaction = Cal.subtaction(num1,num2);
-      int multiply = Cal.multiply(num1,num2);
-      int division = Cal.division(num1,num2);
+      int[] nums = GetNum.scanNumbers();
 
-      Outnum.outmsg(addtion,subtaction,multiply,division);
+      if(nums.length > 4) {
+        System.out.println("要素数が"+"多いです" );
+        return;
+      }
+
+      int sum = Cal.sum(nums);
+
+      IsMul4.check(sum);
+
+    //   int addtion = Cal.addtion(num1,num2);
+    //   int subtaction = Cal.subtaction(num1,num2);
+    //   int multiply = Cal.multiply(num1,num2);
+    //   int division = Cal.division(num1,num2);
+
+    //   Outnum.outmsg(addtion,subtaction,multiply,division);
 
     }
 
