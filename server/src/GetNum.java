@@ -16,8 +16,6 @@ public class GetNum {
    
    		// 半角スペースで区切られた文字列を配列valuesに格納
    		String[] values = line.split( " ", 0 );
-      
-
 
    		// 配列の作成
    		int[] numbers = new int[ values.length ];
