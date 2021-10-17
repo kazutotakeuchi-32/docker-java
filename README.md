@@ -9,7 +9,9 @@
 ```bash
   #コンテナに入って作業
     docker-compose run java /bin/bash
-    java javac Test.java && java Test
+    javac Main.java 
+    java Main
   #直接
-    docker-compose run java javac Test.java && java Test
+    docker-compose run java javac Main.java
+    docker-compose run java java Main
 ```
